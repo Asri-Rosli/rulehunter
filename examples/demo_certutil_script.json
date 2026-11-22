@@ -1,0 +1,6 @@
+[
+  "Thought: First I will look at how certutil appears in the logs.\nAction: search_logs\nInput:\n```\n{\"query\": \"certutil\", \"field\": \"CommandLine\"}\n```",
+  "Thought: Start broad by matching the certutil image, then check false positives.\nAction: test_rule\nInput:\n```\ntitle: Certutil usage (naive)\nlogsource: {product: windows, category: process_creation}\ndetection:\n  selection:\n    Image|endswith: '\\certutil.exe'\n  condition: selection\n```",
+  "Thought: Too broad; benign -verify and -hashfile calls match. Require the urlcache or verifyctl download flags.\nAction: test_rule\nInput:\n```\ntitle: Certutil download via URL cache\nlogsource: {product: windows, category: process_creation}\ndetection:\n  selection_img:\n    Image|endswith: '\\certutil.exe'\n  selection_flag:\n    CommandLine|contains: ['urlcache', 'verifyctl']\n  condition: selection_img and selection_flag\n```",
+  "Thought: Full recall and no false positives on training data. Submitting.\nAction: submit_rule\nInput:\n```\ntitle: Certutil download via URL cache\nlogsource: {product: windows, category: process_creation}\ndetection:\n  selection_img:\n    Image|endswith: '\\certutil.exe'\n  selection_flag:\n    CommandLine|contains: ['urlcache', 'verifyctl']\n  condition: selection_img and selection_flag\n```"
+]

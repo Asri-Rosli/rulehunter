@@ -1,0 +1,10 @@
+title: PowerShell download cradle
+logsource: {product: windows, category: process_creation}
+detection:
+  selection_img:
+    Image|endswith: '\powershell.exe'
+  selection_dl:
+    CommandLine|contains: ['DownloadString', 'Invoke-WebRequest', 'iwr ']
+  selection_exec:
+    CommandLine|contains: ['iex', 'Invoke-Expression']
+  condition: selection_img and selection_dl and selection_exec
