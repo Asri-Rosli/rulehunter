@@ -1,0 +1,5 @@
+title: LSASS memory dump for credential theft (MITRE ATT&CK T1003.001)
+label: T1003.001-lsass
+description: |
+  An attacker dumps the memory of lsass.exe to steal credentials, for example with
+  procdump (-ma) or with rundll32 calling the MiniDump export of comsvcs.dll.

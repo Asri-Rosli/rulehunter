@@ -1,0 +1,7 @@
+title: Scheduled task created for persistence (MITRE ATT&CK T1053.005)
+label: T1053.005-schtask
+description: |
+  An attacker creates a scheduled task with schtasks /create so their payload runs
+  again at logon, at startup or on a timer, often from a user-writable folder such
+  as C:\Users\Public or C:\ProgramData. IT also creates legitimate scheduled tasks,
+  for example nightly backups from Program Files.

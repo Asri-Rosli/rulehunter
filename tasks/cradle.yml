@@ -1,0 +1,7 @@
+title: PowerShell download cradle (MITRE ATT&CK T1059.001)
+label: T1059.001-cradle
+description: |
+  An attacker uses PowerShell to download a script from the internet and run it
+  in memory without writing it to disk, e.g. combining Net.WebClient DownloadString
+  or Invoke-WebRequest with Invoke-Expression (IEX). Administrators also download
+  files with PowerShell, but they save them to disk instead of executing them.
