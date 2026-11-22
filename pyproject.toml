@@ -1,0 +1,10 @@
+[project]
+name = "rulehunter"
+version = "0.1.0"
+description = "LLM agent that writes, tests and refines Sigma detection rules, with safeguards"
+requires-python = ">=3.10"
+dependencies = ["pyyaml>=6.0", "requests>=2.31"]
+
+[tool.pytest.ini_options]
+pythonpath = ["."]
+testpaths = ["tests"]
